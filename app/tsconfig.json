@@ -1,0 +1,19 @@
+{
+	"extends": "../tsconfig",
+	"compilerOptions": {
+		"paths": {
+			"@/*": ["./app/src/*"],
+			".storybook/*": ["./app/.storybook/*"]
+		},
+		"types": ["@testing-library/jest-dom"]
+	},
+	"exclude": ["**/node_modules/**", ".next"],
+	"include": [
+		"next-env.d.ts",
+		"src/**/*.js",
+		"src/**/*.ts",
+		"src/**/*.tsx",
+		"spec/**/*.ts",
+		"src/types/**/*.ts"
+	]
+}

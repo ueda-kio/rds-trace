@@ -1,0 +1,81 @@
+{
+	"$schema": "./app/node_modules/@biomejs/biome/configuration_schema.json",
+	"vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+	"formatter": { "enabled": true },
+	"organizeImports": { "enabled": true },
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": false,
+			"a11y": {
+				"noAccessKey": "error",
+				"noAriaUnsupportedElements": "error",
+				"noAutofocus": "error",
+				"noDistractingElements": "error",
+				"noHeaderScope": "error",
+				"noInteractiveElementToNoninteractiveRole": "error",
+				"noLabelWithoutControl": "error",
+				"noNoninteractiveElementToInteractiveRole": "error",
+				"noNoninteractiveTabindex": "error",
+				"noPositiveTabindex": "error",
+				"noRedundantAlt": "error",
+				"noRedundantRoles": "error",
+				"useAltText": "error",
+				"useAnchorContent": "error",
+				"useAriaActivedescendantWithTabindex": "error",
+				"useAriaPropsForRole": "error",
+				"useButtonType": "off",
+				"useFocusableInteractive": "error",
+				"useHeadingContent": "error",
+				"useHtmlLang": "error",
+				"useIframeTitle": "error",
+				"useKeyWithClickEvents": "error",
+				"useKeyWithMouseEvents": "error",
+				"useMediaCaption": "error",
+				"useValidAnchor": "error",
+				"useValidAriaProps": "error",
+				"useValidAriaRole": "error",
+				"useValidAriaValues": "error"
+			},
+			"complexity": {
+				"noBannedTypes": "off",
+				"noUselessThisAlias": "error",
+				"noUselessTypeConstraint": "error"
+			},
+			"correctness": {
+				"noInvalidUseBeforeDeclaration": "off",
+				"noPrecisionLoss": "error",
+				"noUnusedImports": "error",
+				"noUnusedVariables": "off",
+				"useArrayLiterals": "off",
+				"useExhaustiveDependencies": "off"
+			},
+			"style": {
+				"noDefaultExport": "off",
+				"noNamespace": "error",
+				"noParameterAssign": "error",
+				"useAsConstAssertion": "error",
+				"useConsistentArrayType": {
+					"level": "error",
+					"options": { "syntax": "generic" }
+				},
+				"useFragmentSyntax": "off",
+				"useNamingConvention": {
+					"level": "off",
+					"options": { "strictCase": false }
+				},
+				"noArguments": "error",
+				"noVar": "error",
+				"useConst": "error"
+			},
+			"suspicious": {
+				"noEmptyBlockStatements": "off",
+				"noExplicitAny": "off",
+				"noExtraNonNullAssertion": "error",
+				"noMisleadingInstantiator": "error",
+				"noUnsafeDeclarationMerging": "error",
+				"useAwait": "error"
+			}
+		}
+	}
+}

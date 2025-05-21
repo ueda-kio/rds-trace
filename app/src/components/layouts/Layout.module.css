@@ -1,0 +1,15 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100vh;
+	min-height: 100dvh;
+}
+
+.main {
+	display: flex;
+	flex: auto;
+	flex-direction: column;
+	width: 100%;
+	margin-inline: auto;
+}

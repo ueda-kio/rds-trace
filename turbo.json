@@ -1,0 +1,25 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/tsconfig.json"],
+  "tasks": {
+    "autoCreate": {
+      "inputs": ["src/lib/server/api/spec/*", "src/pages/**/*.page.tsx"],
+      "outputs": ["src/lib/server/api/dist/**", "src/lib/$path.ts"]
+    },
+    "build": {
+      "dependsOn": ["autoCreate"],
+      "outputs": [".next/**"]
+    },
+    "tc": {
+      "dependsOn": ["autoCreate"]
+    },
+    "check": {
+      "dependsOn": ["autoCreate"]
+    },
+    "integration-test": {},
+    "test": {
+      "dependsOn": ["autoCreate", "tc", "check"],
+      "outputs": ["coverage/**"]
+    }
+  }
+}

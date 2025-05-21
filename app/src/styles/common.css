@@ -1,0 +1,98 @@
+/* 基本ルール */
+body {
+	line-height: 1.5;
+}
+
+a {
+	text-decoration: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+/* 表示位置を調整するためにここで指定する必要があるCSSを定義 */
+#snackbar-root {
+	position: fixed;
+	bottom: 72px;
+	left: 0;
+	z-index: var(--z-index-level3);
+	width: 100%;
+}
+
+/* 
+ * 見た目上は非表示にしたいが、支援技術には公開したい場合に使用する。
+ * 例えば、独自のデザインのチェックボックスを作成する際、標準のチェックボックス要素を見た目上は非表示にするが、支援技術からは操作したい場合などに使用する。
+ * コンテンツの開閉など、見た目上も支援技術にも非表示にしたい場合には使用しない。
+ * from: https://waic.jp/translations/WCAG21/Techniques/css/C7#examples 
+ */
+.visuallyHidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(100%);
+	white-space: nowrap;
+}
+
+dialog {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+/* dialog タグ表示中は背景スクロールをロックする */
+html:has(dialog[open]) {
+	overflow: hidden;
+}
+
+@media (width < 768px) {
+	.pc {
+		display: none !important;
+	}
+}
+
+@media (width >= 768px) {
+	.sp {
+		display: none !important;
+	}
+}
+
+*:focus-visible {
+	border-radius: 4px;
+	outline: 2px solid var(--color-primary-400);
+	outline-offset: 2px;
+}
+
+/* 省略CSS共通化
+ * display: -webkit-box を利用した省略には text-overflow: ellipsis は不要だが、
+ * それ以外、かつ1行省略のパターンで省略する際に必要になるため共通クラスには設定しておく
+ */
+.oneLineEllipsis {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+}
+
+.twoLineEllipsis {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.threeLineEllipsis {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+
+.fourLineEllipsis {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+}

@@ -1,0 +1,56 @@
+services:
+  db:
+    build:
+      context: ./db
+      dockerfile: dockerfile.localdb
+    container_name: rds-db
+    volumes:
+      - db-data:/var/lib/postgresql
+      - ./db/local/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - "25432:25432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=rds
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --locale=ja_JP.UTF-8
+    command: -p 25432
+    restart: unless-stopped
+  api-internal:
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+      target: api-internal
+    container_name: rds-api-internal
+    ports:
+      - "28080:28080"
+    links:
+      - db
+    environment:
+      - JAVA_TOOL_OPTIONS=-Djava.security.egd=file:/dev/./urandom
+      - TZ=Asia/Tokyo
+      - APPLICATION_DATASOURCE_PRIMARY_URL=jdbc:postgresql://db:25432/rds
+      - APPLICATION_DATASOURCE_PRIMARY_USERNAME=postgres
+      - APPLICATION_DATASOURCE_PRIMARY_PASSWORD=password
+      - APPLICATION_DATASOURCE_REPLICA_URL=jdbc:postgresql://db:25432/rds
+      - APPLICATION_DATASOURCE_REPLICA_USERNAME=postgres
+      - APPLICATION_DATASOURCE_REPLICA_PASSWORD=password
+      - SERVER_PORT=28080
+  redis:
+    image: redis
+    ports:
+      - 26379:6379
+    expose:
+      - 26379
+    volumes:
+      - redis-data:/data
+    restart: always
+    container_name: redis
+secrets:
+  ghe_token:
+    file: ./ghe_token.txt
+volumes:
+  db-data:
+    driver: local
+  redis-data:
+    driver: local
+  pnpm-store:

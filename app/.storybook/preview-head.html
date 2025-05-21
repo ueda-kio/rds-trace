@@ -1,0 +1,55 @@
+<style>
+  * {
+    font-family: 'Noto Sans JP' !important;
+  }
+</style>
+
+<script>
+  window.waitForStorycap = async () => {
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+    // wait for story
+    // see: https://github.com/storybookjs/storybook/blob/331f4256c35e5afeb3a45bc5786addab71252822/code/lib/preview-api/README-preview-web.md#story-rendering-and-interruptions
+    for (const _ of [...new Array(10).keys()]) {
+      if (
+        ['completed', 'aborted', 'errored'].includes(
+          window.__STORYBOOK_PREVIEW__.currentRender.phase,
+        )
+      )
+        break
+
+      await sleep(500)
+    }
+
+    // wait for images
+    for (const _ of [...new Array(10).keys()]) {
+      if (Array.from(document.querySelectorAll('img')).every((img) => img.complete)) break
+
+      await sleep(500)
+    }
+
+    // scroll to top
+    for (const _ of [...new Array(10).keys()]) {
+      if (scrollX === 0 && scrollY === 0) break
+
+      scrollTo(0, 0)
+      await sleep(500)
+    }
+
+    // wait for navigation
+    if (document.querySelector('header') !== null) {
+      for (const _ of [...new Array(10).keys()]) {
+        if (
+          Array.from(document.querySelectorAll('a')).some((a) =>
+            ['ログイン', '会員登録', '求人をさがす', 'メッセージ', 'マイページ'].some((query) =>
+              a.innerText.includes(query),
+            ),
+          )
+        )
+          break
+
+        await sleep(500)
+      }
+    }
+  }
+</script>

@@ -1,0 +1,113 @@
+:root {
+	/* colors */
+	--color-base-white: #fff;
+	--color-base-gray-01: #73767b;
+	--color-base-50: #f7f6fb;
+	--color-base-75: #e8e6eb;
+	--color-base-100: #d9d6de;
+	--color-base-150: #c8c6cf;
+	--color-base-200: #a9a6b2;
+	--color-base-300: #7b798b;
+	--color-base-400: #50566e;
+	--color-base-500: #394862;
+	--color-primary-50: #f4f5ff;
+	--color-primary-75: #ebecff;
+	--color-primary-100: #dadaff;
+	--color-primary-200: #b9bcff;
+	--color-primary-300: #7c84ff;
+	--color-primary-400: #3f48e4;
+	--color-primary-500: #1110b7;
+	--color-secondary-agent-gradient: linear-gradient(
+		136deg,
+		#d6f5ff 0.01%,
+		#e8fffc 100%
+	);
+	--color-secondary-agent-light: #d9f6ff;
+	--color-secondary-agent-medium: #69d7f1;
+	--color-secondary-agent-regular: #009eba;
+	--color-secondary-agent-semidark: #008399;
+	--color-secondary-agent-dark: #004e5c;
+	--color-secondary-direct-gradient: linear-gradient(
+		142deg,
+		#f4d9ff 0%,
+		#f7ebff 100%
+	);
+	--color-secondary-direct-light: #fdebff;
+	--color-secondary-direct-medium: #e9b3ff;
+	--color-secondary-direct-regular: #c26ceb;
+	--color-secondary-direct-semidark: #a551ce;
+	--color-secondary-direct-dark: #6f1599;
+	--color-secondary-match-gradient: linear-gradient(
+		90deg,
+		#7c84ff 0.01%,
+		#69d7f1 100%
+	);
+	--color-status-notification-dark: #a3042b;
+	--color-status-notification: #e7306f;
+	--color-status-notification-50: #ffe4ed;
+	--color-status-success-dark: #0d622f;
+	--color-status-success: #29bb78;
+	--color-status-success-50: #f0fbf6;
+	--color-status-yellow-dark: #bfb108;
+	--color-status-yellow: #eede24;
+	--color-status-yellow-light: #fdfce9;
+	--color-status-link-visited: #ad26ed;
+
+	/* font size */
+	--font-size-title-heading-01: 24px;
+	--font-size-title-heading-02: 18px;
+	--font-size-title-heading-03: 16px;
+	--font-size-body-01: 20px;
+	--font-size-body-02: 16px;
+	--font-size-body-03: 14px;
+	--font-size-body-number-01: 20px;
+	--font-size-body-number-02: 14px;
+	--font-size-body-number-03: 10px;
+	--font-size-body-number-04: 16px;
+	--font-size-caption-01: 14px;
+	--font-size-caption-02: 12px;
+	--font-size-caption-03: 11px;
+	--font-size-caption-04: 10px;
+
+	/* font weight */
+	--font-weight-w3: 300;
+	--font-weight-w4: 400;
+
+	/* Androidでは600指定だと太字にならない場合があるため、boldにする */
+	--font-weight-w6: bold;
+	--font-weight-w7: 700;
+
+	/* z-index */
+	--z-index-level0: 1;
+	--z-index-level1: 4;
+	--z-index-level2: 7;
+	--z-index-level3: 10;
+
+	/* shadow */
+	--shadow-level1: 0 0 4px rgb(17 16 183 / 4%);
+	--shadow-level2: 0 0 12px rgb(17 16 183 / 8%);
+	--shadow-level2-button: 0 0 3px rgb(17 16 183 / 50%);
+	--shadow-level3: 0 0 16px rgb(17 16 183 / 8%);
+	--shadow-level3-button: 0 0 3px rgb(17 16 183 / 54%);
+	--shadow-level3-left: -4px 0 16px rgb(31 67 130 / 8%);
+}
+
+@media (width >= 768px) {
+	/* font size PC */
+	:root {
+		--font-size-title-heading-01: 32px;
+		--font-size-title-heading-02: 24px;
+		--font-size-title-heading-03: 20px;
+		--font-size-body-01: 20px;
+		--font-size-body-02: 16px;
+		--font-size-body-03: 14px;
+		--font-size-body-number-01: 20px;
+		--font-size-body-number-02: 14px;
+		--font-size-body-number-03: 10px;
+		--font-size-body-number-04: 16px;
+		--font-size-caption-01: 14px;
+		--font-size-caption-02: 12px;
+		--font-size-caption-03: 11px;
+		--font-size-caption-04: 10px;
+	}
+}
